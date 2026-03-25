@@ -24,9 +24,7 @@ public class AuthController {
 
     // Login
     @PostMapping("/login")
-    public User login(String email, String password) {
-        if(user.getPassword().equals(password)) {
-    return user;
-      } 
-    }
+public User login(@RequestBody User user) {
+    return userService.login(user.getEmail(), user.getPassword());
+}
 }
